@@ -38,11 +38,15 @@ app.post("/", function(req, res) {
   // next we need to make our request:
   // response will be a respose from the mailchimp server
 
-  const url = "https://us7.api.mailchimp.com/3.0/lists/0fb8819296"
+    //2025 new audience ID: 9dc3aa3fe2
+    const url = "https://us20.api.mailchimp.com/3.0/lists/9dc3aa3fe2"
+  //2020:  const url = "https://us7.api.mailchimp.com/3.0/lists/0fb8819296"
   const options = {
     method: "POST",
-    //here we can use any string with colon before the API key:
-    auth: "mamamia:46cb9360331cbe0940520f0aa2581171-us7"
+      //here we can use any string with colon before the API key:
+      //2020:   auth: "mamamia:46cb9360331cbe0940520f0aa2581171-us7"
+      //2025: 63592953a7959a9297f98e2eb13472df-us20
+      auth: "mamamia:63592953a7959a9297f98e2eb13472df-us20"
   }
 // this is to make the request to mailchimp with 'options' which makes a post
   const request = https.request(url, options, function(response) {
