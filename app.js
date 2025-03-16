@@ -3,7 +3,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
+require('dotenv').config();
 const https = require("https");
+const punycode = require('punycode/');
+
 
 const app = express();
 
@@ -44,9 +47,8 @@ app.post("/", function(req, res) {
   const options = {
     method: "POST",
       //here we can use any string with colon before the API key:
-      //2020:   auth: "mamamia:46cb9360331cbe0940520f0aa2581171-us7"
-      //2025: 63592953a7959a9297f98e2eb13472df-us20
-      auth: "mamamia:63592953a7959a9297f98e2eb13472df-us20"
+      //the API key is protected (must be!)
+      auth: `mamamia:${process.env.MAILCHIMP_API_KEY}`
   }
 // this is to make the request to mailchimp with 'options' which makes a post
   const request = https.request(url, options, function(response) {
@@ -81,8 +83,3 @@ app.listen(process.env.PORT || 3000, function() {
   console.log("Server is running on port 3000.");
 });
 
-// API key
-// 46cb9360331cbe0940520f0aa2581171-us7
-
-// list or audience ID
-// 0fb8819296
