@@ -2,10 +2,10 @@
 // hint for atom (only?) in what version we are so it doesn't keep sending error messages
 const express = require("express");
 const bodyParser = require("body-parser");
-const request = require("request");
+// const request = require("request");
 require('dotenv').config();
 const https = require("https");
-const punycode = require('punycode/');
+// const punycode = require('punycode/');
 
 
 const app = express();
